@@ -1,13 +1,732 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* >>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>BASIC CSS SETUP STARTS HERE<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+:root {
+  --clr-dark: 230 35% 7%;
+  --clr-light: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+  --clr-red: 0 100% 50%;
+  /* font-sizes */
+  --fs-900: clamp(5rem,
+      8vw + 1rem,
+      9.375rem);
+  /* to make space grow with screen size */
+
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1.75rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* font-families */
+  --ff-serif: 'Bellefair', serif;
+  --ff-sans-cond: 'Barlow Condensed', sans-serif;
+  --ff-sans-normal: 'Barlow', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1rem;
+  }
 }
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+    --fs-500: 1.75rem;
+  }
+}
+
+/* ______________________________________ */
+/* ........ CSS basic Reset...............*/
+/* ______________________________________ */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  background-color:rgb(241, 236, 236);
+  color: rgb(20, 20, 19);
+  line-height: 1.5;
+
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.body_pseudo {
+  min-height: 100vh;
+  line-height: 1.5;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+/* ........................................... */
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* * ..........colors........*/
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+
+.bg-accent {
+  background-color: hsl(var(--clr-light));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+/* ______________________________________ */
+/* ..........Utility Classes...............*/
+/* ______________________________________ */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.d-block {
+  display: block;
+}
+
+/* .........CONTAINER..... CLASSES ....@@@@@@@@@ */
+
+.container {
+  padding-inline: 2em;
+
+  margin-inline: auto;
+  /* it holds the tag (here div) in mid of page */
+
+  max-width: 80rem;
+}
+
+/* .........CONTAINER..... CLASSES ....@@@@@@@@@ */
+
+.flow>*:where(:not(:first-child)) {
+  /*  used to add styles to all sibling elements except first one thus earth div not included*/
+  margin-top: var(--flow-space, 1rem);
+}
+
+.sr-only {
+  /* elements remain in DOM but disaappears from flow i.e screen rendering */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+
+.text-accent {
+  color: hsl(var(--clr-light));
+}
+
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+/* typography */
+
+.ff-serif {
+  font-family: var(--ff-serif);
+}
+
+.ff-sans-cond {
+  font-family: var(--ff-sans-cond);
+}
+
+.ff-sans-normal {
+  font-family: var(--ff-sans-normal);
+}
+
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+
+.letter-spacing-3 {
+  letter-spacing: 2.35px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fs-900 {
+  font-size: var(--fs-900);
+}
+
+.fs-800 {
+  font-size: var(--fs-800);
+}
+
+.fs-700 {
+  font-size: var(--fs-700);
+}
+
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+
+.fs-200 {
+  font-size: var(--fs-200);
+}
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+  line-height: 1.1;
+}
+
+.numbered-title {
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+}
+
+.numbered-title>span {
+  color: grey;
+  font-weight: 800;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+.bd-r {
+  border: 2px red solid;
+}
+
+.bd-g {
+  border: 2px rgb(15, 216, 48) solid;
+}
+
+.bd-style {
+  border-bottom: 2px rgb(28, 44, 73) solid;
+}
+
+
+/* ..................................................
+..................LOGIN I.E HOME PAGE SETUP................................. */
+.bg-area{
+background: linear-gradient( rgba(0,0,0,0.2), rgba( 0,0,0,0.3)) , url("./assets/bg-01.png");
+background-position:center;
+background-size: cover;
+}
+
+
+
+
+.home{
+  
+  
+height: 100vh;
+flex-direction: column;
+justify-content: center;
+  align-items: center;
+}
+
+.home-heading{
+ margin-left: -1rem;
+  font-size: 4em;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(35, 37, 37);
+
+}
+.heading-quote{
+  color: rgb(33, 33, 34);
+  margin-top: -2rem;
+  font-weight: 400;
+  font-size: 1.2em;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.icon{
+  align-self: center;
+}
+
+.icon > img{
+ 
+  width: 3rem;
+
+ 
+  
+}
+
+
+
+#btn {
+background: transparent;
+border: 1px rgb(54, 50, 50) solid;
+color: rgb(46, 39, 39);
+width: 8rem;
+height: 2rem;
+font-size: 1.3rem;
+cursor: pointer;
+text-decoration: none;
+padding-left: 0.5rem;
+margin-left: 0.3rem;
+}
+.login-box >img{
+  border-radius: 40%;
+width: 2rem;
+background-color: aliceblue;
+}
+.login-box{
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+/* >>>>>>>>>>>>BG-video<<<<<<<<<<<<< */
+/* .vd-class{
+  box-sizing: border-box;
+    margin: 0;
+    -webkit-box-pack: center;
+} 
+.bg-video {
+ box-sizing: border-box;
+ z-index: -1111;
+ position: absolute;
+ top: 0%;
+ left:0%;
+ width: 100%;
+ height: 100%;
+ filter: brightness(90%); 
+ object-fit: cover;
+ 
+} */
+
+.login-main{
+  padding-top: 2rem;
+  margin-top: -1rem;
+}
+.div-line{
+  margin-top: -1rem;
+  background: rgb(32, 32, 32);
+  min-height: 4rem;
+  min-width: 0.1rem;
+
+}
+
+
+/* >>>>>>>>>MEDIA QUERY<<<<<<<<<<<<< */
+
+
+
+/* @media (min-width:30em){
+  .home{
+    align-items: center;
+  }
+  .main-comp{
+    padding-right: 0rem;
+  }
+  .home-heading{
+   
+  }
+  .heading-quote{
+    margin-top: -3rem;
+    padding-right: 0rem;
+  }
+  .login-main{
+    padding-left: 8rem;
+  }
+} */
+
+@media (min-width:45em){
+  .home{
+    align-items: end;
+
+  }
+  .main-comp{
+    padding-right: 6rem;
+  }
+  .icon > img{
+    width: 4rem;
+  }
+  .home-heading{
+    font-size: 6em;
+  }
+  .heading-quote{
+    margin-top: -3rem;
+    padding-right: 6rem;
+  }
+.login-main{
+  margin-top: -2rem;
+  padding-right: 8rem;
+}
+
+}
+
+
+/* >>>>>>>>>>>home ends<<<<<<<<<<<<<<< */
+/* >>>>>>>>>>>>>>>>>>>>>MAINPAGE BEGINS<<<<<<<<<<<<<< */
+
+
+/* >>>>>>>>>>>>>NAVBAR<<<<<<<<<<<<<<<<<< */
+
+
+/* >>>>>>>>>>>> NAVBAR starts<<<<<<<<<<<<<<< */
+
+
+
+/* .nav{
+  text-decoration: none;
+  padding-inline: 5vw;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgb(232, 234, 240);
+  
+}
+.nav-bg{
+  color: rgb(202, 198, 198);
+
+ background: rgb(27, 31, 51);
+
+  border-bottom: 1px rgb(75, 182, 231) solid;
+}
+.nav-bg > div > ul > li {
+  color: black;
+}
+
+.primary-nav{
+  text-decoration-style: none;
+  list-style-type:none;
+  
+  --gap: 0.8rem;
+}
+.pmr{
+  justify-content: end;
+  align-items: center;
+width: 100vw;
+}
+.nav-links{
+ 
+text-decoration: none;
+font-family: 'Roboto Mono', monospace;
+font-weight: 400;
+color: rgb(36, 36, 33);
+cursor: pointer;
+}
+.primary-nav *:hover,.primary-nav *:focus,.primary-nav *:active
+{
+color: rgb(146, 221, 221);
+}
+
+.header-logo >img{
+width: 3rem;
+height: 4rem;
+padding: 1rem 0 1rem 0;
+}
+.header-heading{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: -0.6rem;
+  justify-content: center;
+  align-self: center;
+}
+
+/* 
+>>>>>>>media query for responsive NAVBAR>>>>>>>> */
+
+/* @media (max-width: 54em) {
+  
+  
+
+  .primary-nav {
+    --underline-gap: 0.5rem;
+    flex-direction: column;
+
+    z-index: 1000;
+    inset: 0 0 0 45%;
+    position: fixed;
+    padding: min(6rem, 20vh) 2rem;
+    margin: 0;
+
+    background-color: rgba(215, 219, 223, 0.4);
+    backdrop-filter: blur(0.6rem);
+  }
+
+  .slide-out {
+    transform: translateX(100%);
+    transition: transform 400ms ease-in-out;
+  }
+
+  .slide-in {
+    transform: translateX(0);
+    transition: transform 400ms ease-in-out;
+  }
+
+  .primary-nav.underline-fnc>* {
+    border: 0;
+  }
+
+  .primary-nav :hover {
+    color: rgb(8, 220, 248);
+  }
+
+  .mobile-nav-hamicon {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 0.9rem;
+    top: 1.2rem;
+    background: transparent;
+    background-image: url(./icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 1.8rem;
+    aspect-ratio: 1;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .mobile-nav-close {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1.5rem;
+    top: 1.2rem;
+    background: transparent;
+    background-image: url(./icon-close.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 1.7rem;
+    aspect-ratio: 1;
+    border: 0;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 54em) {
+  .nav>button {
+    display: none;
+  }
+}  */
+
+/* >>>>>>>NAVBAR ENDS>>>>>>>>>>>>>> */
+.navbar{
+  width: 100vw;
+  background: rgb(252, 249, 249);
+  
+  justify-content:space-between;
+}
+.nav-icon{
+  width: 2.5rem;
+  height: 4rem;
+  padding: 1.5rem 0.3rem 0.4rem 0.3rem;
+}
+.nav-comp{
+padding-left: 1rem;
+  justify-content: center
+}
+.nav-heading{
+  color: rgb(43, 168, 70);
+  margin-left: -1rem;
+  font-size: 3em;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#links{
+  letter-spacing: 0.2em;
+text-decoration: none;
+padding-right: 1rem;
+color: rgb(20, 24, 22);
+
+}
+.nav-container {
+  margin-right: -1rem;
+  display: block;
+  position: relative;
+}
+
+.nav-container > svg {
+  width: 1.7rem;
+  fill: rgb(107, 112, 107);
+}
+
+.amount-container {
+  position: absolute;
+  top: -0.75rem;
+  right: -1rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: rgb(91, 209, 154);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-amount {
+  color: rgb(248, 239, 236);
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+.primary-nav{
+ 
+  justify-content: end;
+}
+
+.ava{
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 3px rgb(86, 241, 86) solid;
+  border-radius: 50%;
+}
+.user-name{
+  border-left: 2px rgb(9, 104, 56) solid;
+  padding: 0.7rem 1.4rem 0.7rem 0.3rem;
+
+  color: rgb(9, 82, 57);
+  font-family: monospace;
+  font-weight: 600;
+}
+.ul-class{
+  display: flex;
+}
+.user-prf{
+ 
+  background: rgb(252, 249, 249);
+}
+
+ @media (max-width: 54em) {
+
+  .nav-links{
+    /* elements remain in DOM but disaappears from flow i.e screen rendering */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    /* added line */
+    border: 0;
+  }
+
+ }
+/* .ul-class{
+  flex-direction: column;
+}
+.user-prf{
+  border: 2px red solid;
+}
+.nav-container{
+  border: 2px red solid;
+  padding-left: 2.2rem;
+}
+.nav-links{
+  margin-top: -2rem;
+  
+  border: 2px red solid;
+}
+#links{
+font-size: 1.6em;
+}
+.cart-nm{
+  
+  font-size: 1.6em;
+  color: rgb(23, 94, 41);
+}
+
+  .primary-nav {
+    border: 1px solid red;
+    --underline-gap: 0.5rem;
+    flex-direction: column-reverse;
+justify-content: start;
+    z-index: 1000;
+    inset: 0 0 0 39%;
+    position: fixed;
+    padding: min(2rem, 20vh) 2rem;
+    margin-left: 0rem;
+
+    background-color: rgba(215, 219, 223, 0.4);
+    backdrop-filter: blur(0.6rem);
+  }} */

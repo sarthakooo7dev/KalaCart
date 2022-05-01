@@ -9,9 +9,16 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import Test from './pages/Test';
 import reducer from './redux/Reducer'
+import Cart from './pages/Cart';
+import totalcart from './data/data'
+var fcart=[];
 const initialStore = {
- user:"DemoUser",
- count:5
+ user:"Demo_User",
+ count:0,
+ data:totalcart,
+ finalcart:fcart,
+ amount:0,
+ total:0
   
 };
 
@@ -32,6 +39,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/mainpage" element={<Mainpage />} />
             <Route exact path="/test" element={<Test />} />
+            <Route exact path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>
 

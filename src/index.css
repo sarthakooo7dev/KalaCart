@@ -590,9 +590,10 @@ padding: 1rem 0 1rem 0;
 
 /* >>>>>>>NAVBAR ENDS>>>>>>>>>>>>>> */
 .navbar{
-  width: 100vw;
-  background: rgb(252, 249, 249);
   
+  background: rgb(252, 249, 249);
+  position: sticky;
+  top:0;
   justify-content:space-between;
 }
 .nav-icon{
@@ -622,6 +623,7 @@ color: rgb(20, 24, 22);
   margin-right: -1rem;
   display: block;
   position: relative;
+  cursor: pointer;
 }
 
 .nav-container > svg {
@@ -650,7 +652,7 @@ color: rgb(20, 24, 22);
 
 .primary-nav{
  
-  justify-content: end;
+  margin-left: -5rem;
 }
 
 .ava{
@@ -662,7 +664,7 @@ color: rgb(20, 24, 22);
 .user-name{
   border-left: 2px rgb(9, 104, 56) solid;
   padding: 0.7rem 1.4rem 0.7rem 0.3rem;
-
+margin-left: -0.3rem;
   color: rgb(9, 82, 57);
   font-family: monospace;
   font-weight: 600;
@@ -672,61 +674,253 @@ color: rgb(20, 24, 22);
 }
 .user-prf{
  
-  background: rgb(252, 249, 249);
+  /* background: rgb(248, 244, 244); */
+}
+/* .................................... */
+.primary-nav {
+  text-decoration-style: none;
+  list-style-type: none;
+
+  --gap: clamp(0.2rem, 3vw, 4rem);
 }
 
- @media (max-width: 54em) {
+@media (max-width: 54em) {
 
-  .nav-links{
-    /* elements remain in DOM but disaappears from flow i.e screen rendering */
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    /* added line */
-    border: 0;
-  }
 
- }
-/* .ul-class{
-  flex-direction: column;
-}
-.user-prf{
-  border: 2px red solid;
-}
-.nav-container{
-  border: 2px red solid;
-  padding-left: 2.2rem;
-}
-.nav-links{
-  margin-top: -2rem;
-  
-  border: 2px red solid;
-}
-#links{
-font-size: 1.6em;
-}
-.cart-nm{
-  
-  font-size: 1.6em;
-  color: rgb(23, 94, 41);
-}
 
   .primary-nav {
-    border: 1px solid red;
     --underline-gap: 0.5rem;
     flex-direction: column-reverse;
-justify-content: start;
+justify-content: flex-end;
     z-index: 1000;
-    inset: 0 0 0 39%;
+    inset: 0 0 0 35%;
     position: fixed;
-    padding: min(2rem, 20vh) 2rem;
-    margin-left: 0rem;
+    padding: min(6rem, 20vh) 2rem;
+    margin: 0;
 
     background-color: rgba(215, 219, 223, 0.4);
     backdrop-filter: blur(0.6rem);
-  }} */
+  }
+
+  .slide-out {
+    transform: translateX(100%);
+    transition: transform 400ms ease-in-out;
+  }
+
+  .slide-in {
+    transform: translateX(0);
+    transition: transform 400ms ease-in-out;
+  }
+
+  .primary-nav.underline-fnc>* {
+    border: 0;
+  }
+
+  .primary-nav :hover {
+    color: rgb(8, 220, 248);
+  }
+
+  .mobile-nav-hamicon {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 0.9rem;
+    top: 1.5rem;
+    background: transparent;
+    background-image: url(./icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 1.8rem;
+    aspect-ratio: 1;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .mobile-nav-close {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1.5rem;
+    top: 1.5rem;
+    background: transparent;
+    background-image: url(./icon-close.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 1.7rem;
+    aspect-ratio: 1;
+    border: 0;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 54em) {
+  .navbar >button {
+    display: none;
+  }
+}
+
+
+
+
+  /* >>>>>>>>>>>>>CARD SETUP<<<<<<<<<<<<<<<<<<<<<< */
+  .card{
+    border: 3px rgb(34, 241, 52) solid;
+      width: 20rem;
+      background-color: rgb(242, 248, 244);
+      border-top-left-radius: 8%;
+      
+  }
+  .c-img > img{
+    width: 20rem;
+    height: 18rem;
+  }
+  .c-img{
+    padding: 0.8rem;
+  }
+  .c-info{
+    background-color: rgb(223, 227, 230);
+    border-top: 2px rgb(34, 241, 52) solid;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem ;
+  
+  }
+  .price-btn{
+    justify-content: space-between;
+  }
+
+.price-btn >p{
+  font-size: 2em;
+  color: rgb(21, 196, 64);
+}
+.price-btn > button{
+  color: rgb(243, 239, 239);
+  background-color: rgb(247, 45, 45);
+  height: 2rem;
+  margin-top: 0.3rem;
+  border-radius: 10%;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+
+  .art-artist > h2{
+    color: rgb(6, 68, 17);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    margin-top: -0.5rem;
+  }
+  .art-artist > p{
+    color: rgb(19, 119, 86);
+    padding-left: 0.2rem;
+    margin-top: -0.4rem;
+  }
+/* 
+  >>>>>>>>>>>>>MAINPAGE SETUP<<<<<<<<<<<<<< */
+.wrap-mainpage{
+ 
+
+  
+}
+  .art-grid{
+    padding-top: 3rem;
+padding-inline:1.4rem ;
+  display: grid;
+  grid-template-columns: 1fr ;
+  justify-items: center;
+  gap:1.8rem;
+  
+  }
+
+  @media (min-width:40em){
+
+    .art-grid{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width:60em){
+
+    .art-grid{
+      grid-template-columns: 1fr 1fr 1fr;
+      padding-inline: 7rem;
+    }
+  }
+
+
+
+  /* >>>>>>>>>>>>>>CART PAGE SETUP<<<<<<<<<<<< */
+.cart-container{
+  padding-top: 6rem;
+  background: rgb(226, 226, 245);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.holder{
+  width:25rem ;
+  background: white;
+  padding: 3rem;
+}
+
+  .cart-area{
+    
+    border: rgb(128, 233, 128) 2px solid;
+    background: rgb(240, 248, 240);
+    width: 22rem;
+   padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+    
+  }
+.total-area{
+   border: rgb(128, 233, 128) 2px solid;
+    background: rgb(240, 248, 240);
+    width: 22rem;
+   padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+}
+
+
+
+
+.total-area > button{
+  margin-left: 5rem;
+  width: 10rem;
+  letter-spacing: 0.2rem;
+  background: transparent;
+  border: 1px solid red;
+  color: red;
+  font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+.total{
+  margin-top: 3rem;
+}
+.total > p {
+  color: black;
+}
+
+
+  .amount-btn {
+  width: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.amount-btn svg {
+  fill: rgb(214, 106, 33);
+}
+.amount-btn:hover svg {
+  fill: rgb(240, 109, 109);
+}
+.amount {
+  text-align: center;
+  margin-top: 0.7rem;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.cart-img > img{
+  width: 8rem;
+  height: 3rem;
+
+
+}

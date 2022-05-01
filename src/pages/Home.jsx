@@ -38,17 +38,17 @@ const Signin =()=>{
 
 }
 
-{
-        if (loginStatus === true) {
-            console.log(loginStatus, "---on true condt.")
+// {
+//         if (loginStatus === true) {
+//             console.log(loginStatus, "---on true condt.")
 
-            console.log(username,"--name")
-        }
-        else {
-            console.log(loginStatus, "---on else condt.")
-        }
-        console.log(loginStatus, "after onclick")
-}
+//             console.log(username,"--name")
+//         }
+//         else {
+//             console.log(loginStatus, "---on else condt.")
+//         }
+//         console.log(loginStatus, "after onclick")
+// }
 
     const navigate = useNavigate();
 useEffect( ()=>{

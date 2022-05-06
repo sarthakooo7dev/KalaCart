@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { auth } from '../firebase/firebase';
 import {  signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-// import video from '../assets/bg-video3.mp4';
+
 import gicon from '../assets/g-icon.png';
-import { GET_USERNAME } from '../redux/Action';
+import { GET_USERNAME, INITIAL_SETUP } from '../redux/Action';
 import { useDispatch, connect } from 'react-redux';
 
 const Home = ( ) => {
@@ -38,17 +38,14 @@ const Signin =()=>{
 
 }
 
-// {
-//         if (loginStatus === true) {
-//             console.log(loginStatus, "---on true condt.")
+// >>>>>>>>>>>>>>>>>>>>setting states default<<<<<<<<<
 
-//             console.log(username,"--name")
-//         }
-//         else {
-//             console.log(loginStatus, "---on else condt.")
-//         }
-//         console.log(loginStatus, "after onclick")
-// }
+useEffect( ()=>{
+    dispatch({ type : INITIAL_SETUP } )
+    console.log("intial setup dispatched")
+},[])
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     const navigate = useNavigate();
 useEffect( ()=>{
@@ -73,9 +70,7 @@ useEffect( ()=>{
   return (
     <>
    
-          {/* <div className='vd-class bg-area'  >
-              <video className='bg-video' autoPlay loop muted playsInline src={video}></video>
-          </div> */}
+          
 
 
 

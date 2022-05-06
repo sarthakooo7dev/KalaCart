@@ -1,4 +1,6 @@
-import { GET_USERNAME , ADD_ITEM ,INCREASE ,DECREASE, CLEAR_CART, GET_TOTAL } from "./Action";
+import { GET_USERNAME , ADD_ITEM ,INCREASE ,DECREASE, CLEAR_CART, GET_TOTAL, INITIAL_SETUP } from "./Action";
+import totalcart from '../data/data'
+
 
 function reducer (state,action){
 
@@ -122,6 +124,22 @@ let tempcart= state.finalcart.map( val =>{
         return { ...state , total:grandTotal}
 }
 
+
+// >>>>>>>>>>>>>>intial setup<<<<<<<<<<<<<<<<<<<
+
+if(action.type === INITIAL_SETUP){
+
+    return {
+        user: "Demo_User",
+        count: 0,
+        data:totalcart,
+        finalcart: [],
+        amount: 0,
+        total: 0,
+        cardStatus: false,
+        itemID: []
+}
+}
 
 return state;
 }

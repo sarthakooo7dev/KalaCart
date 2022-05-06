@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 const Navbar = ({count , user}) => {
     const [shownav, setShowNav] = useState("false");
-    const [navBg, setNavBg] = useState(false);
+   
 
     const navigate = useNavigate();
     const goToCart =()=>{
@@ -20,7 +20,7 @@ const Navbar = ({count , user}) => {
             <div className='navbar flex  '>
         
 
-                <div className='nav-comp flex '>
+                <Link to='/mainpage' className='nav-comp flex ' style={{ textDecoration:"none"}}>
                     <div className='nav-icon flex '>
                         <img src={icon} alt="" />
                     </div>
@@ -28,25 +28,12 @@ const Navbar = ({count , user}) => {
                         <h1 className='nav-heading'>KalaCart</h1>
                     </div>
 
-                </div>
+                </Link>
                 <button className={shownav ? "mobile-nav-hamicon" : "mobile-nav-close"} aria-controls="primary-navigation" onClick={() => setShowNav(!shownav)}></button>
               
 
                 <div className={shownav ? "  primary-nav  flex slide-out" : " primary-nav  flex slide-in"}>
-                    <div className=' nav-links flex' style={{ alignItems: "center" ,paddingRight:"3rem"}}>
-                        <nav >
-                            <ul className='ul-class '>
-                                <li style={{ listStyleType: "none" }}>
-                                    <Link to="/mainpage" id="links"> Gallery </Link>
-                                </li>
-                                <li style={{ listStyleType: "none" }}>
-                                    <Link to="/test" id="links">Test</Link>
-                                </li>
-
-
-                            </ul>
-                        </nav>
-                    </div>
+                  
 
                 <div className=' flex' style={{ alignItems:"center" ,paddingRight:"2rem"}} >
 
@@ -60,9 +47,7 @@ const Navbar = ({count , user}) => {
                         </div>
                         
                     </div>
-                    {/* <div className='bd-r'>
-                        <p className='cart-nm'>Cart</p>
-                    </div> */}
+                   
                 </div>
 
 

@@ -1,21 +1,45 @@
-import React, { useState } from 'react'
+import { Refresh } from '@mui/icons-material';
+import React, { useEffect, useState } from 'react'
 import {useDispatch, connect } from 'react-redux'
 import image from '../data/images/1.jpg'
 import { ADD_ITEM } from '../redux/Action';
-const Card = ( { artist , title, price ,img ,id}) => {
+
+import AddTaskIcon from '@mui/icons-material/AddTask';
+
+const Card = ( { artist , title, price ,img ,id , itemID}) => {
 
   const[addCartStatus , setAddCartStatus]=useState(false);
-  
+ 
     const dispatch = useDispatch();
 const AddToCart =()=>{
 dispatch({ type :ADD_ITEM , payload :{id : id}});
-setAddCartStatus(true);
-alert(" added item")
+
+
+
+
 
 }
 
 
+// >>>>>>>>>>>>>>>>>>>>>>>>>card status<<<<<<<<<<<<<
+  useEffect(() => {
 
+    if ((itemID.includes(id))) {
+      setAddCartStatus(true);
+    } else {
+      setAddCartStatus(false);
+    }
+     
+    console.log(addCartStatus,id ,"real time card status")
+
+   
+  });
+
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<
 
   return (
     <>
@@ -33,10 +57,12 @@ alert(" added item")
                       <p>${price}</p>
 
       {
-        addCartStatus ? <div> added</div> : <div> not added</div>
+        
+       
+              addCartStatus ?<div><AddTaskIcon style={{ color:"blue" , fontSize:"2.5em" }}/> </div> : <button onClick={AddToCart}>Add to cart</button> 
       }
-                      
-                      <button onClick={AddToCart}>Add to cart</button>
+                    
+          {console.log(addCartStatus,"---addcartstatus")}           
 
             </div>
          
@@ -50,7 +76,7 @@ alert(" added item")
 
 const mapStateToProps =(state)=>{
 
-    return { state}
+    return { state , itemID:state.itemID}
 }
 
 export default  connect(mapStateToProps) (Card);

@@ -5,7 +5,7 @@ import Cartitem from '../componenets/Cartitem'
 import { dialogClasses } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { CLEAR_CART ,GET_TOTAL } from '../redux/Action'
-
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 const Cart = ({finalcart=[],  total}) => {
     var a = finalcart;
     console.log(finalcart,"--finalcat--cart")
@@ -52,16 +52,26 @@ dispatch({ type: CLEAR_CART})
   return (
     <>
     <Navbar/>
-    <div className='cart-container bd-r'>
-        
+    <div className='cart-container '>
+        <div className='cart-card'>
+      <div style={{
+            padding: " 0.8rem 0rem 0.5rem 0.9rem", background:"rgb(240, 248, 240)" , borderBottom:"2px green solid", marginBottom:"0.4rem"
+      }}>
+            <h2 style={{fontFamily:"serif" }}>My Cart   </h2>
+            
+      </div>
+       
         {
           a.map( val =>{
             
             console.log(val.amount,"---val--inc - amount")
+            
          return(
-           <div className='cart-area'>
+           <div className='cart-area '>
              
-             <Cartitem image={val.imgurl} price={val.price} title={val.title} amount={val.amount} id={val.id}/>
+               <Cartitem image={val.imgurl} price={val.price} title={val.title} amount={val.amount} id={val.id} />
+            
+             
            </div>
 
 
@@ -70,6 +80,7 @@ dispatch({ type: CLEAR_CART})
           })
           
         }
+       
         
         
         <div className='total-area' >
@@ -81,7 +92,7 @@ dispatch({ type: CLEAR_CART})
          </div>
         </div>
      
-
+        </div>
 
 
 {

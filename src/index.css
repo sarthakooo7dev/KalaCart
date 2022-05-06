@@ -360,24 +360,7 @@ background-color: aliceblue;
   cursor: pointer;
 }
 
-/* >>>>>>>>>>>>BG-video<<<<<<<<<<<<< */
-/* .vd-class{
-  box-sizing: border-box;
-    margin: 0;
-    -webkit-box-pack: center;
-} 
-.bg-video {
- box-sizing: border-box;
- z-index: -1111;
- position: absolute;
- top: 0%;
- left:0%;
- width: 100%;
- height: 100%;
- filter: brightness(90%); 
- object-fit: cover;
- 
-} */
+
 
 .login-main{
   padding-top: 2rem;
@@ -396,24 +379,7 @@ background-color: aliceblue;
 
 
 
-/* @media (min-width:30em){
-  .home{
-    align-items: center;
-  }
-  .main-comp{
-    padding-right: 0rem;
-  }
-  .home-heading{
-   
-  }
-  .heading-quote{
-    margin-top: -3rem;
-    padding-right: 0rem;
-  }
-  .login-main{
-    padding-left: 8rem;
-  }
-} */
+
 
 @media (min-width:45em){
   .home{
@@ -451,150 +417,13 @@ background-color: aliceblue;
 /* >>>>>>>>>>>> NAVBAR starts<<<<<<<<<<<<<<< */
 
 
-
-/* .nav{
-  text-decoration: none;
-  padding-inline: 5vw;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background: rgb(232, 234, 240);
-  
-}
-.nav-bg{
-  color: rgb(202, 198, 198);
-
- background: rgb(27, 31, 51);
-
-  border-bottom: 1px rgb(75, 182, 231) solid;
-}
-.nav-bg > div > ul > li {
-  color: black;
-}
-
-.primary-nav{
-  text-decoration-style: none;
-  list-style-type:none;
-  
-  --gap: 0.8rem;
-}
-.pmr{
-  justify-content: end;
-  align-items: center;
-width: 100vw;
-}
-.nav-links{
- 
-text-decoration: none;
-font-family: 'Roboto Mono', monospace;
-font-weight: 400;
-color: rgb(36, 36, 33);
-cursor: pointer;
-}
-.primary-nav *:hover,.primary-nav *:focus,.primary-nav *:active
-{
-color: rgb(146, 221, 221);
-}
-
-.header-logo >img{
-width: 3rem;
-height: 4rem;
-padding: 1rem 0 1rem 0;
-}
-.header-heading{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin-left: -0.6rem;
-  justify-content: center;
-  align-self: center;
-}
-
-/* 
->>>>>>>media query for responsive NAVBAR>>>>>>>> */
-
-/* @media (max-width: 54em) {
-  
-  
-
-  .primary-nav {
-    --underline-gap: 0.5rem;
-    flex-direction: column;
-
-    z-index: 1000;
-    inset: 0 0 0 45%;
-    position: fixed;
-    padding: min(6rem, 20vh) 2rem;
-    margin: 0;
-
-    background-color: rgba(215, 219, 223, 0.4);
-    backdrop-filter: blur(0.6rem);
-  }
-
-  .slide-out {
-    transform: translateX(100%);
-    transition: transform 400ms ease-in-out;
-  }
-
-  .slide-in {
-    transform: translateX(0);
-    transition: transform 400ms ease-in-out;
-  }
-
-  .primary-nav.underline-fnc>* {
-    border: 0;
-  }
-
-  .primary-nav :hover {
-    color: rgb(8, 220, 248);
-  }
-
-  .mobile-nav-hamicon {
-    display: block;
-    position: absolute;
-    z-index: 2000;
-    right: 0.9rem;
-    top: 1.2rem;
-    background: transparent;
-    background-image: url(./icon-hamburger.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    width: 1.8rem;
-    aspect-ratio: 1;
-    border: 0;
-    cursor: pointer;
-  }
-
-  .mobile-nav-close {
-    display: block;
-    position: absolute;
-    z-index: 2000;
-    right: 1.5rem;
-    top: 1.2rem;
-    background: transparent;
-    background-image: url(./icon-close.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    width: 1.7rem;
-    aspect-ratio: 1;
-    border: 0;
-    cursor: pointer;
-  }
-}
-
-@media (min-width: 54em) {
-  .nav>button {
-    display: none;
-  }
-}  */
-
-/* >>>>>>>NAVBAR ENDS>>>>>>>>>>>>>> */
 .navbar{
   
   background: rgb(252, 249, 249);
   position: sticky;
   top:0;
   justify-content:space-between;
+  border-bottom: 2px rgb(21, 134, 59) solid;
 }
 .nav-icon{
   width: 2.5rem;
@@ -662,12 +491,13 @@ color: rgb(20, 24, 22);
   border-radius: 50%;
 }
 .user-name{
-  border-left: 2px rgb(9, 104, 56) solid;
+  border-left: 2px rgb(70, 141, 105) solid;
   padding: 0.7rem 1.4rem 0.7rem 0.3rem;
 margin-left: -0.3rem;
-  color: rgb(9, 82, 57);
+  color: rgb(42, 158, 118);
   font-family: monospace;
   font-weight: 600;
+  letter-spacing: 0.15em;
 }
 .ul-class{
   display: flex;
@@ -685,21 +515,29 @@ margin-left: -0.3rem;
 }
 
 @media (max-width: 54em) {
-
+.user-name {
+  letter-spacing: 0.3em;
+  border-left: 2px rgb(167, 241, 204) solid;
+color: rgb(234, 239, 250);
+}
+.nav-container>svg {
+  width: 1.7rem;
+  fill: rgb(195, 202, 195);
+}
 
 
   .primary-nav {
     --underline-gap: 0.5rem;
     flex-direction: column-reverse;
 justify-content: flex-end;
-    z-index: 1000;
+    z-index: 1050;
     inset: 0 0 0 35%;
     position: fixed;
     padding: min(6rem, 20vh) 2rem;
     margin: 0;
 
-    background-color: rgba(215, 219, 223, 0.4);
-    backdrop-filter: blur(0.6rem);
+    background-color: rgba(36, 43, 44, 0.4);
+    backdrop-filter: blur(0.7rem);
   }
 
   .slide-out {
@@ -760,28 +598,29 @@ justify-content: flex-end;
     display: none;
   }
 }
-
+/* >>>>>>>NAVBAR ENDS>>>>>>>>>>>>>> */
 
 
 
   /* >>>>>>>>>>>>>CARD SETUP<<<<<<<<<<<<<<<<<<<<<< */
   .card{
-    border: 3px rgb(34, 241, 52) solid;
+    border: 1px rgb(13, 156, 29) solid;
       width: 20rem;
-      background-color: rgb(242, 248, 244);
+      background-color: rgb(227, 230, 228);
       border-top-left-radius: 8%;
       
   }
   .c-img > img{
     width: 20rem;
     height: 18rem;
+    border-radius: 10%;
   }
   .c-img{
     padding: 0.8rem;
   }
   .c-info{
     background-color: rgb(223, 227, 230);
-    border-top: 2px rgb(34, 241, 52) solid;
+    border-top: 2px rgb(9, 141, 20) solid;
     padding: 0.5rem 0.8rem 0.5rem 0.8rem ;
   
   }
@@ -795,7 +634,7 @@ justify-content: flex-end;
 }
 .price-btn > button{
   color: rgb(243, 239, 239);
-  background-color: rgb(247, 45, 45);
+  background-color: rgb(238, 38, 38);
   height: 2rem;
   margin-top: 0.3rem;
   border-radius: 10%;
@@ -807,7 +646,7 @@ justify-content: flex-end;
   .art-artist > h2{
     color: rgb(6, 68, 17);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 2em;
+    font-size: 1.6em;
     margin-top: -0.5rem;
   }
   .art-artist > p{
@@ -822,13 +661,36 @@ justify-content: flex-end;
 
   
 }
+.header{
+  padding-inline: 3rem;
+  padding-top: 1rem;
+}
+.header > h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(59, 78, 63);
+}
+.p1{
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(38, 71, 43);
+  padding-inline: 2rem;
+}
+.p2 ,.p3{
+  font-family: monospace;
+  color: rgb(95, 102, 96);
+}
+
+
+
+
   .art-grid{
     padding-top: 3rem;
+    padding-bottom: 3rem;
 padding-inline:1.4rem ;
   display: grid;
   grid-template-columns: 1fr ;
   justify-items: center;
-  gap:1.8rem;
+ 
+  row-gap:3rem;
   
   }
 
@@ -866,19 +728,22 @@ padding-inline:1.4rem ;
 
   .cart-area{
     
-    border: rgb(128, 233, 128) 2px solid;
+    border-bottom: rgb(128, 233, 128) 1px solid;
     background: rgb(240, 248, 240);
     width: 22rem;
    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
     
   }
 .total-area{
-   border: rgb(128, 233, 128) 2px solid;
+  
     background: rgb(240, 248, 240);
     width: 22rem;
    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
 }
-
+.cart-card{
+ 
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
 
 
 
@@ -897,6 +762,9 @@ padding-inline:1.4rem ;
 }
 .total > p {
   color: black;
+  padding-left: 3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Helvetica, sans-serif;
+  font-size: 1.2rem;
 }
 
 
@@ -924,3 +792,5 @@ padding-inline:1.4rem ;
 
 
 }
+
+

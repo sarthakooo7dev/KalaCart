@@ -8,14 +8,14 @@ const Cartitem = ({image, price , title , amount ,id }) => {
 
   const HandleDecrease = () => {
     dispatch({ type: DECREASE, payload: { id: id , amount:amount } });
-    alert("kk")
-    console.log("inc clicked")
+
+    console.log("dec clicked")
   }
 
 
   const HandleIncrease =()=>{
     dispatch({ type: INCREASE, payload: { id: id } });
-    alert("kk")
+  
     console.log("inc clicked")
  }
 
